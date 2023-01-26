@@ -14,10 +14,6 @@ env:
   # You can convert this to a build matrix if you need coverage of multiple configuration types.
   # https://docs.github.com/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix
   BUILD_CONFIGURATION: Release
-  
-  CL: /I\C:\curl-7.87.0-win64-mingw\include\
-  LINK: /LIBPATH:C:\curl-7.87.0-win64-mingw\bin\
-  
 
 permissions:
   contents: read
@@ -27,33 +23,21 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    
-    - name: Download libcurl
-      run: |
-        $url = "https://curl.haxx.se/windows/dl-7.87.0/curl-7.87.0-win64-mingw.zip"
-        $file = "curl-7.87.0-win64-mingw.zip"
-        $path = "C:\"
-        Invoke-WebRequest -Uri $url -OutFile $path\$file
-        Expand-Archive -Path $path\$file -DestinationPath $path
-        
-    - name: conf
-      run: |
-        set CL="/I\C:\curl-7.87.0-win64-mingw\include\"
-        set LINK="/LIBPATH:C:\curl-7.87.0-win64-mingw\bin\"
-
     - uses: actions/checkout@v3
 
     - name: Add MSBuild to PATH
       uses: microsoft/setup-msbuild@v1.0.2
-    - name: libCURL
-      run:  choco install curl
       
-    - name: Restore NuGet packages
+    - name: curl
       working-directory: ${{env.GITHUB_WORKSPACE}}
-      run: nuget restore ${{env.SOLUTION_FILE_PATH}}
+      run: vcpkg install curl
+      
+    - name: Restore vcpkg packages
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: vcpkg integrate install
       
     - name: Build
       working-directory: ${{env.GITHUB_WORKSPACE}}
       # Add additional options to the MSBuild command line here (like platform or verbosity level).
       # See https://docs.microsoft.com/visualstudio/msbuild/msbuild-command-line-reference
-      run: msbuild /m /p:IncludePath="C:\curl-7.87.0-win64-mingw\include\" /p:AdditionalLibraryDirectories="C:\curl-7.87.0-win64-mingw\lib\" /p:Configuration=${{env.BUILD_CONFIGURATION}} ${{env.SOLUTION_FILE_PATH}}
+      run: msbuild /m /p:Configuration=${{env.BUILD_CONFIGURATION}} ${{env.SOLUTION_FILE_PATH}}
