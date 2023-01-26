@@ -36,14 +36,4 @@ jobs:
 
     - name: Download libcurl
       run: |
-        $url = "https://curl.haxx.se/windows/dl-7.87.0/curl-7.87.0-win64-mingw.zip"
-        $file = "curl-7.87.0-win64-mingw.zip"
-        $path = "C:\"
-        Invoke-WebRequest -Uri $url -OutFile $path\$file
-        Expand-Archive -Path $path\$file -DestinationPath $path
-
-    - name: Build
-      working-directory: ${{env.GITHUB_WORKSPACE}}
-      # Add additional options to the MSBuild command line here (like platform or verbosity level).
-      # See https://docs.microsoft.com/visualstudio/msbuild/msbuild-command-line-reference
-      run: msbuild /m /p:IncludePath="C:\curl-7.84.0\include\" /p:Configuration=${{env.BUILD_CONFIGURATION}} ${{env.SOLUTION_FILE_PATH}}
+        dir
