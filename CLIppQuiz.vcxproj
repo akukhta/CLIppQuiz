@@ -76,6 +76,8 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalIncludeDirectories>C:\Users\Aliaksei_Kukhta\vcpkg\installed\x86-windows\include\boost\beast;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -90,6 +92,8 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalIncludeDirectories>C:\Users\Aliaksei_Kukhta\vcpkg\installed\x86-windows\include\boost\beast;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -104,6 +108,8 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalIncludeDirectories>C:\Users\Aliaksei_Kukhta\vcpkg\installed\x86-windows\include\boost\beast;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -118,6 +124,8 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalIncludeDirectories>C:\Users\Aliaksei_Kukhta\vcpkg\installed\x86-windows\include\boost\beast;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -128,6 +136,26 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CLIppQuiz.cpp" />
+    <ClCompile Include="CppQuiz.cpp" />
+    <ClCompile Include="Messages.cpp" />
+    <ClCompile Include="QuizLoader.cpp" />
+    <ClCompile Include="TerminalInput.cpp" />
+    <ClCompile Include="TerminalPrinter.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CodeSegParser.h" />
+    <ClInclude Include="CppQuiz.h" />
+    <ClInclude Include="IInputHandler.h" />
+    <ClInclude Include="IQuestionParser.h" />
+    <ClInclude Include="IQuestionParserDecorator.h" />
+    <ClInclude Include="IQuestionPrinter.h" />
+    <ClInclude Include="LexycalParserDecorator.h" />
+    <ClInclude Include="Messages.h" />
+    <ClInclude Include="QuestionDifficultyParserDecorator.h" />
+    <ClInclude Include="QuizLoader.h" />
+    <ClInclude Include="ResultParser.h" />
+    <ClInclude Include="TerminalInput.h" />
+    <ClInclude Include="TerminalPrinter.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
