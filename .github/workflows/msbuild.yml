@@ -24,16 +24,19 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-
-    - name: Add MSBuild to PATH
-      uses: microsoft/setup-msbuild@v1.0.2
-    - name: libCURL
-      run:  choco install curl
-      
-    - name: Restore NuGet packages
-      working-directory: ${{env.GITHUB_WORKSPACE}}
-      run: nuget restore ${{env.SOLUTION_FILE_PATH}}
-
+    
     - name: Download libcurl
+      run: |        
+        $url = "https://curl.haxx.se/windows/dl-7.87.0/curl-7.87.0-win64-mingw.zip"
+        $file = "curl-7.87.0-win64-mingw.zip"
+        $path = "C:\"
+        Invoke-WebRequest -Uri $url -OutFile $path\$file
+        Expand-Archive -Path $path\$file -DestinationPath $path
+
+
+    - name: show
       run: |
         dir
+        cd C:/
+        dir 
+        cd curl-7.87.0/
