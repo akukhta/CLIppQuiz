@@ -43,7 +43,6 @@
     <ClInclude Include="src\IO\TerminalPrinter.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
     <None Include="vcpkg.json" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
