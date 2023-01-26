@@ -23,17 +23,7 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    - uses: actions/checkout@v3
-
-    - name: Add MSBuild to PATH
-      uses: microsoft/setup-msbuild@v1.0.2
-    - name: libCURL
-      run:  choco install curl
-      
-    - name: Restore NuGet packages
-      working-directory: ${{env.GITHUB_WORKSPACE}}
-      run: nuget restore ${{env.SOLUTION_FILE_PATH}}
-
+    
     - name: Download libcurl
       run: |
         $url = "https://curl.haxx.se/windows/dl-7.87.0/curl-7.87.0-win64-mingw.zip"
@@ -44,9 +34,20 @@ jobs:
         
     - name: conf
       run: |
-        set $CL="/I\C:\curl-7.87.0-win64-mingw\include\"
-        set $LINK="/LIBPATH:C:\curl-7.87.0-win64-mingw\bin\"
-        
+        set CL="/I\C:\curl-7.87.0-win64-mingw\include\"
+        set LINK="/LIBPATH:C:\curl-7.87.0-win64-mingw\bin\"
+
+    - uses: actions/checkout@v3
+
+    - name: Add MSBuild to PATH
+      uses: microsoft/setup-msbuild@v1.0.2
+    - name: libCURL
+      run:  choco install curl
+      
+    - name: Restore NuGet packages
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      run: nuget restore ${{env.SOLUTION_FILE_PATH}}
+      
     - name: Build
       working-directory: ${{env.GITHUB_WORKSPACE}}
       # Add additional options to the MSBuild command line here (like platform or verbosity level).
