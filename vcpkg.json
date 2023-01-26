@@ -1,0 +1,7 @@
+{
+  "name": "clipp-quiz",
+  "version-string": "0.1",
+  "dependencies": [
+    "curl"
+  ]
+}
