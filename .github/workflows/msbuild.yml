@@ -44,8 +44,8 @@ jobs:
         
     - name: conf
       run: |
-        set $env:CL="/I\C:\curl-7.87.0-win64-mingw\include\"
-        set $env:LINK="/LIBPATH:C:\curl-7.87.0-win64-mingw\bin\"
+        set $CL="/I\C:\curl-7.87.0-win64-mingw\include\"
+        set $LINK="/LIBPATH:C:\curl-7.87.0-win64-mingw\bin\"
         
     - name: Build
       working-directory: ${{env.GITHUB_WORKSPACE}}
