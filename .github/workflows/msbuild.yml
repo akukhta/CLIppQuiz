@@ -34,10 +34,6 @@ jobs:
         vcpkg integrate install
         cd C:\
         dir
-        cd Users
-        dir
-        cd runneradmin
-        dir
         cd vcpkg
         dir
         cd installed
