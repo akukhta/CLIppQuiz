@@ -2,13 +2,13 @@
 //
 
 #include <iostream>
-#include "CppQuiz.h"
+#include "../API/CppQuiz.h"
 #include "IQuestionParserDecorator.h"
-#include "TerminalPrinter.h"
+#include "../IO/TerminalPrinter.h"
 #include "LexycalParserDecorator.h"
 #include "ResultParser.h"
 #include "QuestionDifficultyParserDecorator.h"
-#include "TerminalInput.h"
+#include "../IO/TerminalInput.h"
 
 int main()
 {
