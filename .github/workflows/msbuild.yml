@@ -30,7 +30,12 @@ jobs:
       
     - name: Restore vcpkg packages
       working-directory: ${{env.GITHUB_WORKSPACE}}
-      run: vcpkg integrate install
+      run: |
+        vcpkg integrate install
+        cd C:\
+        dir
+        cd Users
+        dir
       
     - name: Build
       working-directory: ${{env.GITHUB_WORKSPACE}}
