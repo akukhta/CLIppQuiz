@@ -18,6 +18,29 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\API\CppQuiz.cpp" />
+    <ClCompile Include="src\API\QuizLoader.cpp" />
+    <ClCompile Include="src\Common\CLIppQuiz.cpp" />
+    <ClCompile Include="src\Common\Messages.cpp" />
+    <ClCompile Include="src\IO\TerminalInput.cpp" />
+    <ClCompile Include="src\IO\TerminalPrinter.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\API\CppQuiz.h" />
+    <ClInclude Include="src\API\QuizLoader.h" />
+    <ClInclude Include="src\Common\CodeSegParser.h" />
+    <ClInclude Include="src\Common\IQuestionParser.h" />
+    <ClInclude Include="src\Common\IQuestionParserDecorator.h" />
+    <ClInclude Include="src\Common\LexycalParserDecorator.h" />
+    <ClInclude Include="src\Common\Messages.h" />
+    <ClInclude Include="src\Common\QuestionDifficultyParserDecorator.h" />
+    <ClInclude Include="src\Common\ResultParser.h" />
+    <ClInclude Include="src\IO\IInputHandler.h" />
+    <ClInclude Include="src\IO\IQuestionPrinter.h" />
+    <ClInclude Include="src\IO\TerminalInput.h" />
+    <ClInclude Include="src\IO\TerminalPrinter.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -134,29 +157,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="CLIppQuiz.cpp" />
-    <ClCompile Include="CppQuiz.cpp" />
-    <ClCompile Include="Messages.cpp" />
-    <ClCompile Include="QuizLoader.cpp" />
-    <ClCompile Include="TerminalInput.cpp" />
-    <ClCompile Include="TerminalPrinter.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="CodeSegParser.h" />
-    <ClInclude Include="CppQuiz.h" />
-    <ClInclude Include="IInputHandler.h" />
-    <ClInclude Include="IQuestionParser.h" />
-    <ClInclude Include="IQuestionParserDecorator.h" />
-    <ClInclude Include="IQuestionPrinter.h" />
-    <ClInclude Include="LexycalParserDecorator.h" />
-    <ClInclude Include="Messages.h" />
-    <ClInclude Include="QuestionDifficultyParserDecorator.h" />
-    <ClInclude Include="QuizLoader.h" />
-    <ClInclude Include="ResultParser.h" />
-    <ClInclude Include="TerminalInput.h" />
-    <ClInclude Include="TerminalPrinter.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

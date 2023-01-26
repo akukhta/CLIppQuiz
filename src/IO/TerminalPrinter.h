@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
 #include <format>
-#include "Messages.h"
+#include "../Common/Messages.h"
 #include "IQuestionPrinter.h"
 
 class TerminalPrinter final : public IQuestionPrinter

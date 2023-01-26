@@ -1,10 +1,10 @@
 #pragma once
 #include "QuizLoader.h"
-#include "CodeSegParser.h"
-#include "IQuestionParserDecorator.h"
-#include "IQuestionPrinter.h"
-#include "TerminalPrinter.h"
-#include "IInputHandler.h"
+#include "../Common/CodeSegParser.h"
+#include "../Common/IQuestionParserDecorator.h"
+#include "../IO/IQuestionPrinter.h"
+#include "../IO/TerminalPrinter.h"
+#include "../IO/IInputHandler.h"
 
 class CppQuiz
 {

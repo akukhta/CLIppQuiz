@@ -15,63 +15,63 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CLIppQuiz.cpp">
+    <ClCompile Include="src\API\CppQuiz.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="QuizLoader.cpp">
+    <ClCompile Include="src\API\QuizLoader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CppQuiz.cpp">
+    <ClCompile Include="src\Common\CLIppQuiz.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TerminalPrinter.cpp">
+    <ClCompile Include="src\Common\Messages.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TerminalInput.cpp">
+    <ClCompile Include="src\IO\TerminalInput.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Messages.cpp">
+    <ClCompile Include="src\IO\TerminalPrinter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="QuizLoader.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="IQuestionPrinter.h">
+    <ClInclude Include="src\API\CppQuiz.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="IQuestionParser.h">
+    <ClInclude Include="src\API\QuizLoader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="IQuestionParserDecorator.h">
+    <ClInclude Include="src\Common\CodeSegParser.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CodeSegParser.h">
+    <ClInclude Include="src\Common\IQuestionParser.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CppQuiz.h">
+    <ClInclude Include="src\Common\IQuestionParserDecorator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="TerminalPrinter.h">
+    <ClInclude Include="src\Common\LexycalParserDecorator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="LexycalParserDecorator.h">
+    <ClInclude Include="src\Common\Messages.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Messages.h">
+    <ClInclude Include="src\Common\QuestionDifficultyParserDecorator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ResultParser.h">
+    <ClInclude Include="src\Common\ResultParser.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="QuestionDifficultyParserDecorator.h">
+    <ClInclude Include="src\IO\IInputHandler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="IInputHandler.h">
+    <ClInclude Include="src\IO\IQuestionPrinter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="TerminalInput.h">
+    <ClInclude Include="src\IO\TerminalInput.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\IO\TerminalPrinter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
