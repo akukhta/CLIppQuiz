@@ -34,8 +34,8 @@ jobs:
 
     - name: Download libcurl
       run: |
-        $url = "https://curl.haxx.se/windows/dl-7.78.0_3/curl-7.78.0_3-win64-mingw.zip"
-        $file = "curl-7.78.0_3-win64-mingw.zip"
+        $url = "https://curl.haxx.se/windows/dl-7.87.0/curl-7.87.0-win64-mingw.zip"
+        $file = "curl-7.87.0-win64-mingw.zip"
         $path = "C:\"
         Invoke-WebRequest -Uri $url -OutFile $path\$file
         Expand-Archive -Path $path\$file -DestinationPath $path
