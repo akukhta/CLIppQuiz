@@ -32,15 +32,6 @@ jobs:
       working-directory: ${{env.SOLUTION_FILE_PATH}}
       run: |
         vcpkg integrate install
-        cd C:\
-        dir
-        cd vcpkg
-        dir
-        cd installed
-        cd x64-windows
-        dir
-        cd include
-        dir
         
     - name: Build
       working-directory: ${{env.GITHUB_WORKSPACE}}
