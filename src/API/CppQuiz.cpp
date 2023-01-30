@@ -2,11 +2,11 @@
 
 CppQuiz::CppQuiz
 	(
-		std::unique_ptr<IQuestionPrinter> out, std::unique_ptr<IQuestionParserDecorator> parser,
+		Configuration configuration, std::unique_ptr<IQuestionPrinter> out, std::unique_ptr<IQuestionParserDecorator> parser,
 		std::unique_ptr<IQuestionParserDecorator> resultParser, std::unique_ptr<IQuestionParserDecorator> diffParser,
 		std::unique_ptr<IInputHandler> input
 	) :
-		loader(std::make_unique<QuizLoader>()), out(std::move(out)), parser(std::move(parser)),
+		configuration(configuration), loader(std::make_unique<QuizLoader>()), out(std::move(out)), parser(std::move(parser)),
 		resultParser(std::move(resultParser)), diffParser(std::move(diffParser)), input(std::move(input)),
 		questionID(0), difficulty('0')
 {
@@ -14,34 +14,37 @@ CppQuiz::CppQuiz
 
 void CppQuiz::play()
 {
-	auto question = loader->getQuestion();
-	auto diffCulty = diffParser->parse(question);
-
-	question = parser->parse(question);
-
-	size_t attempts = 0;
-	RunRes result = RunRes::IGN;
-
-	std::string inputStr;
-
-	while (result != RunRes::CORRECT)
+	for (size_t i = 1; i <= configuration.countOfQuestions; i++)
 	{
-		out->clear();
-		out->printInfo(diffCulty, loader->getQuestionID(), attempts++);
-		out->print(question);
+		auto question = loader->getQuestion();
+		auto diffCulty = diffParser->parse(question);
 
-		InputRes resInpt = input->getInput(inputStr);
+		question = parser->parse(question);
 
-		if (resInpt == InputRes::EXIT)
+		size_t attempts = 0;
+		RunRes result = RunRes::IGN;
+
+		std::string inputStr;
+
+		while (result != RunRes::CORRECT)
 		{
-			return;
+			out->clear();
+			out->printInfo(diffCulty, loader->getQuestionID(), attempts++);
+			out->print(question);
+
+			InputRes resInpt = input->getInput(inputStr);
+
+			if (resInpt == InputRes::EXIT)
+			{
+				return;
+			}
+			else if (resInpt == InputRes::NORM)
+			{
+				result = getRes(resultParser->parse(loader->sendAnswer(inputStr)));
+			}
 		}
-		else if (resInpt == InputRes::NORM)
-		{
-			result = getRes(resultParser->parse(loader->sendAnswer(inputStr)));
-		}
+
+		out->printSolvedMsg(attempts);
 	}
-
-	out->printSolvedMsg(attempts);
 }
 

@@ -5,11 +5,12 @@
 #include "../IO/IQuestionPrinter.h"
 #include "../IO/TerminalPrinter.h"
 #include "../IO/IInputHandler.h"
+#include "../Common/IConfigurationManager.h"
 
 class CppQuiz
 {
 public:
-	CppQuiz(std::unique_ptr<IQuestionPrinter> out, std::unique_ptr<IQuestionParserDecorator> parser, 
+	CppQuiz(Configuration configuration, std::unique_ptr<IQuestionPrinter> out, std::unique_ptr<IQuestionParserDecorator> parser, 
 		std::unique_ptr<IQuestionParserDecorator> resultParser, std::unique_ptr<IQuestionParserDecorator> diffParser, std::unique_ptr<IInputHandler> input);
 	
 	void play();
@@ -21,6 +22,7 @@ private:
 	std::unique_ptr<IQuestionParserDecorator> resultParser;
 	std::unique_ptr<IQuestionParserDecorator> diffParser;
 	std::unique_ptr<IInputHandler> input;
+	Configuration configuration;
 
 	size_t questionID;
 	char difficulty;

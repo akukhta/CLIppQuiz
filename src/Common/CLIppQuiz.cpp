@@ -9,10 +9,16 @@
 #include "ResultParser.h"
 #include "QuestionDifficultyParserDecorator.h"
 #include "../IO/TerminalInput.h"
+#include "../Common/QuizBuilder.h"
+#include "../Common/TerminalConfigurationManager.h"
 
-int main()
+int main(int argc, const char* argv[])
 {
-	std::unique_ptr<IQuestionParserDecorator> parser = std::make_unique<LexycalParserDecorator>(
+	std::unique_ptr<IConfigurationManager> manager = std::make_unique<TerminalConfigurationManager>(argc, argv);
+
+	QuizBuilder builder;
+
+	builder.setParser(std::make_unique<LexycalParserDecorator>(
 		std::make_unique<CodeSegParser>(),
 		std::unordered_map<std::string_view, std::string_view>{
 			{"&quot;", "\""},
@@ -20,14 +26,14 @@ int main()
 			{ "&gt;", ">" },
 			{ "&amp;", "&" },
 			{ "&#39;", "'" }
-		});
+	}));
 
-	std::unique_ptr<IQuestionPrinter> printer = std::make_unique<TerminalPrinter>();
-	std::unique_ptr<IQuestionParserDecorator> resParser = std::make_unique<IQuestionParserDecorator>(std::make_unique<ResultParser>());
-	std::unique_ptr<IQuestionParserDecorator> diffParser = std::make_unique<QuestionDIfficultyParserDecorator>(nullptr);
-	std::unique_ptr<IInputHandler> input = std::make_unique<TerminalInput>();
+	builder.setOut(std::make_unique<TerminalPrinter>()).setDiffParser(std::make_unique<QuestionDIfficultyParserDecorator>(nullptr));	
+	builder.setResultParser(std::make_unique<IQuestionParserDecorator>(std::make_unique<ResultParser>()));
+	builder.setInput(std::make_unique<TerminalInput>());
+	builder.setConfiguration(manager->getConfig());
 
-	CppQuiz q(std::move(printer), std::move(parser), std::move(resParser), std::move(diffParser), std::move(input));
+	CppQuiz q = builder.build();
 
 	q.play();
 }

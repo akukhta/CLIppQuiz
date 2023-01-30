@@ -20,14 +20,18 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Common\QuizBuilder.cpp" />
     <ClCompile Include="src\API\CppQuiz.cpp" />
     <ClCompile Include="src\API\QuizLoader.cpp" />
     <ClCompile Include="src\Common\CLIppQuiz.cpp" />
     <ClCompile Include="src\Common\Messages.cpp" />
     <ClCompile Include="src\IO\TerminalInput.cpp" />
     <ClCompile Include="src\IO\TerminalPrinter.cpp" />
+    <ClCompile Include="src\Common\TerminalConfigurationManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Common\IConfigurationManager.h" />
+    <ClInclude Include="src\Common\QuizBuilder.h" />
     <ClInclude Include="src\API\CppQuiz.h" />
     <ClInclude Include="src\API\QuizLoader.h" />
     <ClInclude Include="src\Common\CodeSegParser.h" />
@@ -41,6 +45,7 @@
     <ClInclude Include="src\IO\IQuestionPrinter.h" />
     <ClInclude Include="src\IO\TerminalInput.h" />
     <ClInclude Include="src\IO\TerminalPrinter.h" />
+    <ClInclude Include="src\Common\TerminalConfigurationManager.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="vcpkg.json" />
@@ -97,6 +102,24 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Label="Vcpkg">
+    <VcpkgEnabled>true</VcpkgEnabled>
+    <VcpkgEnableManifest>true</VcpkgEnableManifest>
+    <VcpkgManifestInstall>true</VcpkgManifestInstall>
+    <VcpkgAutoLink>true</VcpkgAutoLink>
+  </PropertyGroup>
+  <PropertyGroup Label="Vcpkg" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <VcpkgInstalledDir>C:\Users\Aliaksei_Kukhta\vcpkg\installed</VcpkgInstalledDir>
+  </PropertyGroup>
+  <PropertyGroup Label="Vcpkg" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <VcpkgInstalledDir>C:\Users\Aliaksei_Kukhta\vcpkg\installed</VcpkgInstalledDir>
+  </PropertyGroup>
+  <PropertyGroup Label="Vcpkg" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <VcpkgInstalledDir>C:\Users\Aliaksei_Kukhta\vcpkg\installed</VcpkgInstalledDir>
+  </PropertyGroup>
+  <PropertyGroup Label="Vcpkg" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <VcpkgInstalledDir>C:\Users\Aliaksei_Kukhta\vcpkg\installed</VcpkgInstalledDir>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
