@@ -33,10 +33,10 @@
     <ClCompile Include="src\IO\TerminalPrinter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TerminalConfigurationManager.cpp">
+    <ClCompile Include="src\Common\QuizBuilder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="QuizBuilder.cpp">
+    <ClCompile Include="src\Common\TerminalConfigurationManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -80,13 +80,13 @@
     <ClInclude Include="src\IO\TerminalPrinter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="IConfigurationManager.h">
+    <ClInclude Include="src\Common\IConfigurationManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="TerminalConfigurationManager.h">
+    <ClInclude Include="src\Common\QuizBuilder.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="QuizBuilder.h">
+    <ClInclude Include="src\Common\TerminalConfigurationManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
