@@ -31,6 +31,7 @@ jobs:
     - name: Restore vcpkg packages
       working-directory: ${{env.SOLUTION_FILE_PATH}}
       run: |
+        vcpkg update
         vcpkg integrate install
         
     - name: Build
