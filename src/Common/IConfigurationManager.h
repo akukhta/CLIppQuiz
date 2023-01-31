@@ -2,9 +2,15 @@
 
 struct Configuration
 {
-	bool showExplanation = false;
-	std::pair<bool, size_t> specificQuestion = { false, size_t() };
-	size_t countOfQuestions = 1;
+	Configuration() : showExplanation(false), specificQuestion({ false, size_t() }), countOfQuestions(1) 
+	{
+		auto r = rand();
+		r += rand();
+	}
+	
+	bool showExplanation;
+	std::pair<bool, size_t> specificQuestion;
+	size_t countOfQuestions;
 };
 
 class IConfigurationManager

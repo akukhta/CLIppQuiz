@@ -14,7 +14,7 @@ CppQuiz::CppQuiz
 
 void CppQuiz::play()
 {
-	for (size_t i = 1; i <= configuration.countOfQuestions; i++)
+	for (size_t questionNum = 1; questionNum <= configuration.countOfQuestions; questionNum++)
 	{
 		auto question = loader->getQuestion();
 		auto diffCulty = diffParser->parse(question);
@@ -29,7 +29,7 @@ void CppQuiz::play()
 		while (result != RunRes::CORRECT)
 		{
 			out->clear();
-			out->printInfo(diffCulty, loader->getQuestionID(), attempts++);
+			out->printInfo(diffCulty, loader->getQuestionID(), attempts++, { questionNum , configuration.countOfQuestions });
 			out->print(question);
 
 			InputRes resInpt = input->getInput(inputStr);

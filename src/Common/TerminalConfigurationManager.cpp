@@ -8,7 +8,7 @@ TerminalConfigurationManager::TerminalConfigurationManager(int argc, const char*
         ("help,h", "Help screen")
         ("explain,e", "Show explanation")
         ("specific,s", "Solve specific question")
-        ("count,c", boost::program_options::value<int>(), "Set number of questions to solve");
+        ("count,c", boost::program_options::value<size_t>(), "Set number of questions to solve");
 
     store(parse_command_line(argc, argv, desc), vm);
 }

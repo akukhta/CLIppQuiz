@@ -38,7 +38,10 @@ QuizBuilder& QuizBuilder::setInput(std::unique_ptr<IInputHandler> input)
 
 QuizBuilder& QuizBuilder::setConfiguration(Configuration configuration)
 {
-    this->configuraiton = configuraiton;
+    this->configuraiton.countOfQuestions = configuration.countOfQuestions;
+    this->configuraiton.showExplanation = configuration.showExplanation;
+    this->configuraiton.specificQuestion = configuration.specificQuestion;
+
     return *this;
 }
 

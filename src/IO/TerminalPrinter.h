@@ -23,7 +23,7 @@ public:
 		return currentQuestion;
 	}
 
-	virtual void printInfo(std::string const& difficulty, size_t questionID, size_t atttempts) override
+	virtual void printInfo(std::string const& difficulty, size_t questionID, size_t atttempts, std::pair<size_t,size_t> questionNumber) override
 	{
 		std::cout << "Difficulty: [";
 
@@ -39,7 +39,7 @@ public:
 			std::cout << " ";
 		}
 
-		std::cout << std::format("]\tQuestion ID:\t{}\tAttempts:\t{}\n\n", questionID, atttempts);
+		std::cout << std::format("]\tQuestion ID:\t{}\tAttempts:\t{}\tQuestion: {}\\{}\n\n", questionID, atttempts, questionNumber.first, questionNumber.second);
 	}
 
 	virtual void print(std::string const& question) override
