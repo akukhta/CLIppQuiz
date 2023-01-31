@@ -4,6 +4,9 @@
   "version": "0.15.2",
   "dependencies": [
     "curl",
-    "boost-program-options"
+    {
+      "name": "boost-program-options",
+      "version":  "1.79.0"
+    }
   ]
 }
