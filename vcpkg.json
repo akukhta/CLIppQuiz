@@ -6,7 +6,7 @@
     "curl",
     {
       "name": "boost-program-options",
-      "version":  "1.79.0"
+      "version<=":  "1.79.0"
     }
   ]
 }
