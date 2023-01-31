@@ -7,7 +7,7 @@ TerminalConfigurationManager::TerminalConfigurationManager(int argc, const char*
     desc.add_options()
         ("help,h", "Help screen")
         ("explain,e", "Show explanation")
-        ("specific,s", "Solve specific question")
+        ("specific,s", boost::program_options::value<size_t>(), "Solve specific question")
         ("count,c", boost::program_options::value<size_t>(), "Set number of questions to solve");
 
     store(parse_command_line(argc, argv, desc), vm);
@@ -35,7 +35,7 @@ Configuration TerminalConfigurationManager::getConfig()
 
     if (vm.count("specific"))
     {
-        cfg.specificQuestion = { true, vm["specific"].as<int>() };
+        cfg.specificQuestion = { true, vm["specific"].as<size_t>() };
     }
 
     return cfg;

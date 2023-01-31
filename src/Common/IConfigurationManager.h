@@ -4,8 +4,6 @@ struct Configuration
 {
 	Configuration() : showExplanation(false), specificQuestion({ false, size_t() }), countOfQuestions(1) 
 	{
-		auto r = rand();
-		r += rand();
 	}
 	
 	bool showExplanation;

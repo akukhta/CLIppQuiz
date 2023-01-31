@@ -16,7 +16,9 @@ void CppQuiz::play()
 {
 	for (size_t questionNum = 1; questionNum <= configuration.countOfQuestions; questionNum++)
 	{
-		auto question = loader->getQuestion();
+		auto question = configuration.specificQuestion.first ? 
+			loader->getQuestion(configuration.specificQuestion.second) : loader->getQuestion();
+
 		auto diffCulty = diffParser->parse(question);
 
 		question = parser->parse(question);
