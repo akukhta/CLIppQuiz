@@ -25,7 +25,8 @@ int main(int argc, const char* argv[])
 			{ "&lt;", "<" },
 			{ "&gt;", ">" },
 			{ "&amp;", "&" },
-			{ "&#39;", "'" }
+			{ "&#39;", "'" },
+			{ "&#x27;", "'" }
 	}));
 
 	builder.setOut(std::make_unique<TerminalPrinter>()).setDiffParser(std::make_unique<QuestionDIfficultyParserDecorator>(nullptr));	
